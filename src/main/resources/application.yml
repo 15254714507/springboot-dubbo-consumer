@@ -1,0 +1,25 @@
+#服务器配置
+server:
+  port: 8091
+#spring配置
+spring: 
+  resources:
+    static-locations: classpath:/templates/,classpath:/static/ 
+      #配置JSP视图
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp   
+  devtools:   
+    livereload:
+      port: 35730    #热部署端口换一个，提供者已经用了默认的热部署端口了      
+demo: 
+  service: 
+    version: 1.0.0  #自定义属性，版本号
+dubbo:
+  application:
+    name: consumer  #服务唯一ID，不要重复
+  registry:
+  #zookeeper注册中心，我这是集群，从哪个地址进都一样，当然，为了容错性，把所有的都加上也行
+    address: zookeeper://192.168.137.131:2181  
+
